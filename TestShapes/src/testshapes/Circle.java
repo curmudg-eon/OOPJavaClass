@@ -2,11 +2,15 @@
 package testshapes;
 
 public class Circle {
-    public double radius=0;
-    Circle(double r) {
-        radius = r;
+    private double radius;
+    Circle() {
+        this.radius = 1;
     }
-    double getArea() {return Math.pow(radius,2) * Math.PI;}
-    double getCircumference() {return radius*2*Math.PI;}
-    
+    Circle(double r) {
+        this.radius = r;
+    }
+    public double getArea() {return Math.pow(radius,2) * Math.PI;}
+    public double getCircumference() {return radius*2*Math.PI;}
+    public double getRadius() {return radius;}
+    public void setRadius(double r) {if(r >= 0) this.radius = r;}
 }
