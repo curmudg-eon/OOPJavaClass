@@ -3,9 +3,9 @@ package testshapes;
 
 
 public class Triangle {
-    public double s1;
-    public double s2;
-    public double s3;
+    private double s1;
+    private double s2;
+    private double s3;
     double s;
     //I know this naming has been inconsistent
     Triangle(double side1, double side2, double side3) {
