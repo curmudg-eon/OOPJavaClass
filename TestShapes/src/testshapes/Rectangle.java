@@ -16,7 +16,7 @@ public class Rectangle {
         else width = 0;
     }
     public double getArea() {return length*width;}
-    public double getCircumference() {return 2*length + 2*width;}
+    public double getPerimeter() {return 2*length + 2*width;}
     public void setLength(double l) {if(l >= 0) length = l;}
     public void setWidth(double w) {if(w >= 0) width = w;}
     public double getLength() {return length;}
