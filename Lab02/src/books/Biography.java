@@ -2,19 +2,26 @@
 package books;
 
 public class Biography extends Book{
-    private int subject;
+    private String subject;
 
-    public Biography(int subject, String title, Author author, int numberOfPages) {
+    public Biography(String title, Author author, int numberOfPages, String subject) {
         super(title, author, numberOfPages);
         this.subject = subject;
     }
+    public Biography(Book b, String subject) {
+        super(b.getTitle(), b.getAuthor(), b.getNumberOfPages());
+        this.subject = subject;
+    }
 
-    public int getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public void setSubject(int subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
-    
+    @Override
+    public String getInfo() {
+        return getTitle() + " by " + getAuthor().getName() + "\n\tSubject: " +getSubject() + "\n\tPage Count: " + getNumberOfPages()+"\n";
+    }
 }

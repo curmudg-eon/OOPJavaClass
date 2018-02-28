@@ -36,6 +36,8 @@ public class Book {
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
-    
+    public String getInfo() {
+        return getTitle() + " by " + getAuthor().getName() + "\n\tPage Count: " + getNumberOfPages() + "\n";
+    }
     
 }

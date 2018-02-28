@@ -29,6 +29,7 @@ public class ShapeCalculator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
         cmbBoxOptions = new JComboBox(shapeListStr);
         jPanel1 = new javax.swing.JPanel();
@@ -40,6 +41,18 @@ public class ShapeCalculator extends javax.swing.JFrame {
         txtInput3 = new javax.swing.JTextField();
         lblInput4 = new javax.swing.JLabel();
         txtInput4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,20 +80,25 @@ public class ShapeCalculator extends javax.swing.JFrame {
         jPanel1.add(lblInput4);
         jPanel1.add(txtInput4);
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(cmbBoxOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(43, 43, 43)
+                        .addComponent(cmbBoxOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,14 +109,33 @@ public class ShapeCalculator extends javax.swing.JFrame {
                     .addComponent(cmbBoxOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbBoxOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBoxOptionsActionPerformed
-        // TODO add your handling code here:
+        if(shapeList[cmbBoxOptions.getSelectedIndex()] instanceof Circle) {
+            lblInput1.setText("Enter a radius");
+            lblInput2.setText("-");
+            lblInput3.setText("-");
+            lblInput4.setText("-");
+        } else if (shapeList[cmbBoxOptions.getSelectedIndex()] instanceof Rectangle) {
+            lblInput1.setText("Enter a length");
+            lblInput2.setText("Enter a width");
+            lblInput3.setText("-");
+            lblInput4.setText("-");
+        } else if (shapeList[cmbBoxOptions.getSelectedIndex()] instanceof Triangle) {
+            lblInput1.setText("Enter side 1");
+            lblInput2.setText("Enter side 2");
+            lblInput3.setText("Enter side 3");
+            lblInput4.setText("-");
+        }
+        if (shapeList[cmbBoxOptions.getSelectedIndex()] instanceof ThreeDObject) 
+            lblInput4.setText("Enter a height");
     }//GEN-LAST:event_cmbBoxOptionsActionPerformed
 
     /**
@@ -138,7 +175,9 @@ public class ShapeCalculator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbBoxOptions;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblInput1;
     private javax.swing.JLabel lblInput2;
